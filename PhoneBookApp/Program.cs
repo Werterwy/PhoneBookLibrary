@@ -38,7 +38,6 @@ namespace PhoneBookApp
 
                         foreach (var contact in allContacts)
                         {
-                            //Console.WriteLine($"ID: {contact.Id}, Имя: {contact.Name}, Номер: {contact.PhoneNumber}, Email: {contact.Email}");
                             Console.WriteLine(contact.ToString());
                         }
                         Console.WriteLine("");
