@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LiteDB;
+using Serilog;
 
 namespace PhoneBookLibrary
 {
@@ -70,7 +71,11 @@ namespace PhoneBookLibrary
             catch (Exception ex)
             {
                 // В случае возникновения исключения выводим сообщение об ошибке
-                Console.WriteLine($"Ошибка при добавлении контакта: {ex.Message}");
+               // Console.WriteLine($"Ошибка при добавлении контакта: {ex.Message}");
+
+                // Логирование ошибки
+                Log.Error(ex, $"Ошибка при добавлении контакта: {ex.Message}");
+                throw; // Переопределение исключения после логирования
                 checktry = false;
             }
 
@@ -121,7 +126,11 @@ namespace PhoneBookLibrary
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка при получении всех контактов: {ex.Message}");
+                //Console.WriteLine($"Ошибка при получении всех контактов: {ex.Message}");
+
+                // Логирование ошибки
+                Log.Error(ex, $"Ошибка при получении всех контактов: {ex.Message}");
+                throw; // Переопределение исключения после логирования
             }
 
             return allContacts;
@@ -219,7 +228,11 @@ namespace PhoneBookLibrary
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка при удалении контакта: {ex.Message}");
+                //Console.WriteLine($"Ошибка при удалении контакта: {ex.Message}");
+
+                // Логирование ошибки
+                Log.Error(ex, $"Ошибка при удалении контакта: {ex.Message}");
+                throw; // Переопределение исключения после логирования
             }
         }
 
@@ -269,7 +282,11 @@ namespace PhoneBookLibrary
             catch (Exception ex)
             {
                 // В случае возникновения исключения выводим сообщение об ошибке
-                Console.WriteLine($"Ошибка при редактировании контакта: {ex.Message}");
+                //Console.WriteLine($"Ошибка при редактировании контакта: {ex.Message}");
+
+                // Логирование ошибки
+                Log.Error(ex, $"Ошибка при редактировании контакта: {ex.Message}");
+                throw; // Переопределение исключения после логирования
             }
         }
         /// <summary>
